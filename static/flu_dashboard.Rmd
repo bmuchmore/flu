@@ -37,12 +37,8 @@ library(widgetframe)
 
 options(tigris_use_cache = TRUE)
 
-knitr::opts_chunk$set(widgetframe_self_contained = FALSE)
-knitr::opts_chunk$set(widgetframe_isolate_widgets = TRUE)
-  knitr::opts_chunk$set(widgetframe_widgets_dir = 'widgets' ) 
-
-vermont_zip_data <- read_rds("/home/brian/Desktop/flu/data/vermont_zip_data")
-vermont_zip_geo <- read_rds("/home/brian/Desktop/flu/data/vermont_zip_geo")
+vermont_zip_data <- read_rds("/home/brian/Desktop/flu/fludata/vermont_zip_data")
+vermont_zip_geo <- read_rds("/home/brian/Desktop/flu/fludata/vermont_zip_geo")
 ```
 
 ```{r, include = FALSE}
