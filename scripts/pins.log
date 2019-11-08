@@ -1,0 +1,1491 @@
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 42
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 37 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, child_education <dbl+lbl>,
+#   juvenile_education <dbl+lbl>, teenage_education <dbl+lbl>,
+#   young_adult_education <dbl+lbl>, older_adult_education <dbl+lbl>,
+#   oldest_adult_education <dbl+lbl>, child_received_shot <dbl+lbl>,
+#   juvenile_received_shot <dbl+lbl>, teenage_received_shot <dbl+lbl>,
+#   young_adult_received_shot <dbl+lbl>, older_adult_received_shot <dbl+lbl>,
+#   oldest_adult_received_shot <dbl+lbl>, child_shot_yes_explain <dbl+lbl>,
+#   juvenile_shot_yes_explain <dbl+lbl>, teenage_shot_yes_explain <dbl+lbl>,
+#   young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 37
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 32 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, prediction <dbl+lbl>,
+#   child_received_shot <dbl+lbl>, juvenile_received_shot <dbl+lbl>,
+#   teenage_received_shot <dbl+lbl>, young_adult_received_shot <dbl+lbl>,
+#   older_adult_received_shot <dbl+lbl>, oldest_adult_received_shot <dbl+lbl>,
+#   child_shot_yes_explain <dbl+lbl>, juvenile_shot_yes_explain <dbl+lbl>,
+#   teenage_shot_yes_explain <dbl+lbl>, young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+# A tibble: 12 x 37
+   session created             modified            ended               expired
+   <chr>   <dttm>              <dttm>              <dttm>              <lgl>  
+ 1 3yHMBD… 2019-10-28 17:28:33 2019-10-28 17:31:38 2019-10-28 17:31:38 NA     
+ 2 57Y58J… 2019-10-24 16:38:35 2019-10-24 16:40:57 2019-10-24 16:40:57 NA     
+ 3 7OtQG_… 2019-10-25 19:58:45 2019-10-25 20:00:51 2019-10-25 20:00:51 NA     
+ 4 cMcFIi… 2019-10-24 14:23:48 2019-10-24 14:26:42 2019-10-24 14:26:42 NA     
+ 5 EJ14Jb… 2019-10-25 20:43:28 2019-10-25 21:33:03 2019-10-25 21:33:03 NA     
+ 6 mzRWgk… 2019-10-24 19:12:20 2019-10-24 19:49:37 2019-10-24 19:49:37 NA     
+ 7 Ow8PGc… 2019-10-25 17:31:25 2019-10-25 18:02:21 2019-10-25 18:02:21 NA     
+ 8 TeXd7J… 2019-10-25 21:43:01 2019-10-25 22:54:44 NA                  NA     
+ 9 uN3zlz… 2019-10-25 14:13:28 2019-10-25 14:48:36 2019-10-25 14:48:36 NA     
+10 weFUtJ… 2019-10-24 17:06:41 2019-10-24 17:09:37 2019-10-24 17:09:37 NA     
+11 ycZWvS… 2019-10-25 16:30:05 2019-10-25 17:15:01 2019-10-25 17:15:02 NA     
+12 yMoTZZ… 2019-10-25 14:50:28 2019-10-25 14:51:41 2019-10-25 14:51:42 NA     
+# … with 32 more variables: last_outside_referrer <lgl>, ip_address <chr>,
+#   browser <chr>, who <dbl+lbl>, zip <dbl+lbl>, child_has_flu <dbl+lbl>,
+#   juvenile_has_flu <dbl+lbl>, teenage_has_flu <dbl+lbl>,
+#   young_adult_has_flu <dbl+lbl>, older_adult_has_flu <dbl+lbl>,
+#   oldest_adult_has_flu <dbl+lbl>, prediction <dbl+lbl>,
+#   child_received_shot <dbl+lbl>, juvenile_received_shot <dbl+lbl>,
+#   teenage_received_shot <dbl+lbl>, young_adult_received_shot <dbl+lbl>,
+#   older_adult_received_shot <dbl+lbl>, oldest_adult_received_shot <dbl+lbl>,
+#   child_shot_yes_explain <dbl+lbl>, juvenile_shot_yes_explain <dbl+lbl>,
+#   teenage_shot_yes_explain <dbl+lbl>, young_adult_shot_yes_explain <dbl+lbl>,
+#   older_adult_shot_yes_explain <dbl+lbl>,
+#   oldest_adult_shot_yes_explain <dbl+lbl>, child_shot_explain <dbl+lbl>,
+#   juvenile_shot_explain <dbl+lbl>, teenage_shot_explain <dbl+lbl>,
+#   young_adult_shot_explain <dbl+lbl>, older_adult_shot_explain <dbl+lbl>,
+#   oldest_adult_shot_explain <dbl+lbl>, quit <dbl+lbl>, shot <dbl+lbl>
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Warning message:
+In formr_label_missings(results, item_displays, tag_missings = tag_missings) :
+  Unequal number of rows between item display and results. Missings not labelled.
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
+Error in formr_raw_results(survey_name, host) : 
+  This survey does not exist or isn't yours.
+Calls: formr_results -> formr_raw_results
+Execution halted
