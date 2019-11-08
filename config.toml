@@ -1,6 +1,9 @@
+## THIS MUST BE SET CORRECTLY TO RENDER CORRECTLY
+baseURL = "https://frosty-goldwasser-a6933e.netlify.com/"
+
 relativeURLs = true
 uglyURLs = true
-baseURL = "https://frosty-goldwasser-a6933e.netlify.com/"
+
 languageCode = "en-US"
 title = "Flu Tracker"
 theme = "bootstrap-bp-hugo-startpage"
