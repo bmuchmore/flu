@@ -1,4 +1,6 @@
-baseURL = "https://example.com/"
+relativeURLs = true
+uglyURLs = true
+baseURL = "https://frosty-goldwasser-a6933e.netlify.com/"
 languageCode = "en-US"
 title = "Flu Tracker"
 theme = "bootstrap-bp-hugo-startpage"

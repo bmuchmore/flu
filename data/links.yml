@@ -1,9 +1,44 @@
 ---
 - group: Flu Data
   items:
+    - title: Real-time Flu Dashboard
+      url: /flu_dashboard.html
+      icon: fas fa-map-marked-alt
+      description: ""
+    - title: Flu Survey
+      url: https://testflusurvey.formr.org
+      icon: fas fa-certificate
+      description: "A website for flu information and real-time flu tracking"
+    - title: Flu Survey Analysis
+      url: /flu.html
+      icon: fas fa-certificate
+      description: ""    
+    - title: Flu Survey Data
+      url: https://github.com/bmuchmore/pins/blob/master/flu/data.csv
+      icon: fas fa-certificate
+      description: ""
 - group: Public Resources
   items:
-
+    - title: CDC National, Regional, and State Level Outpatient Illness and Viral Surveillance
+      url: https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html
+      icon: fas fa-chart-line
+      description: ""
+    - title: CDC Age Group Distribution of Influenza Positive Tests Reported by Public Health Laboratories
+      url: https://gis.cdc.gov/grasp/fluview/flu_by_age_virus.html
+      icon: fas fa-chart-line 
+      description: ""
+    - title: WHO Influenza Update
+      url: https://www.who.int/influenza/surveillance_monitoring/updates/latest_update_GIP_surveillance/en/
+      icon: fas fa-chart-line 
+      description: ""
+    - title: Flu Near You
+      url: https://flunearyou.org/#!/
+      icon: fas fa-chart-line 
+      description: "" 
+    - title: Google Flu Trends
+      url: https://www.google.org/flutrends/about/
+      icon: fas fa-chart-line 
+      description: ""
       
       
 
