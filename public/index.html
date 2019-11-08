@@ -57,7 +57,150 @@
 <body class="text-center">
         <main role="main" class="container">
 
-<h1 class="welcomeText">Flu Tracker</h1>
+<h1 class="welcomeText" style="-webkit-text-stroke:1px black; font-size:55px;">Flu Tracker</h1>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<script>
+function showdynamed()
+{
+
+$("#dynamedDIV").removeClass("none");
+$("#dynamedDIV").addClass("showDIV");
+
+$("#googlescholarDIV").removeClass("googlescholarDIV");
+$("#googlescholarDIV").addClass("none");
+
+$("#uptodateDIV").removeClass("showDIV");
+$("#uptodateDIV").addClass("none");
+
+$("#pubmedDIV").removeClass("pubmedDIV");
+$("#pubmedDIV").addClass("none");
+
+$("#scihubDIV").removeClass("scihubDIV");
+$("#scihubDIV").addClass("none");
+}
+
+function showuptodate()
+{
+
+$("#uptodateDIV").removeClass("none");
+$("#uptodateDIV").addClass("showDIV");
+
+$("#googlescholarDIV").removeClass("googlescholarDIV");
+$("#googlescholarDIV").addClass("none");
+
+$("#dynamedDIV").removeClass("showDIV");
+$("#dynamedDIV").addClass("none");
+
+$("#pubmedDIV").removeClass("pubmedDIV");
+$("#pubmedDIV").addClass("none");
+
+$("#scihubDIV").removeClass("scihubDIV");
+$("#scihubDIV").addClass("none");
+}
+
+function showpubmed()
+{
+
+$("#pubmedDIV").removeClass("none");
+$("#pubmedDIV").addClass("pubmedDIV");
+
+$("#googlescholarDIV").removeClass("googlescholarDIV");
+$("#googlescholarDIV").addClass("none");
+
+$("#dynamedDIV").removeClass("showDIV");
+$("#dynamedDIV").addClass("none");
+
+$("#uptodateDIV").removeClass("showDIV");
+$("#uptodateDIV").addClass("none");
+
+$("#scihubDIV").removeClass("scihubDIV");
+$("#scihubDIV").addClass("none");
+}
+
+function showgooglescholar()
+{
+
+$("#googlescholarDIV").removeClass("none");
+$("#googlescholarDIV").addClass("googlescholarDIV");
+
+$("#dynamedDIV").removeClass("showDIV");
+$("#dynamedDIV").addClass("none");
+
+$("#uptodateDIV").removeClass("showDIV");
+$("#uptodateDIV").addClass("none");
+
+$("#pubmedDIV").removeClass("pubmedDIV");
+$("#pubmedDIV").addClass("none")
+
+$("#scihubDIV").removeClass("scihubDIV");
+$("#scihubDIV").addClass("none");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+</script>
+
+</head>
+<body>
+
+<div class="btn-group">
+    <button type="button" data-switch-toggle="state" class="btn btn-primary" id="pubmed" onclick="showpubmed()">Search PubMed</button>
+    <button type="button" data-switch-toggle="state" class="btn btn-danger" id="googlescholar" onclick="showgooglescholar()">Search Google Scholar</button>
+    <button type="button" data-switch-toggle="state" class="btn btn-success" id="uptodate" onclick="showuptodate()">Search UpToDate</button>
+    <button type="button" data-switch-toggle="state" class="btn btn-info" id="dynamed" onclick="showdynamed()">Search DynaMed</button>
+</div>
+
+<div id="dynamedDIV" class="none">
+<form id="search-form-g" action="https://www.dynamed.com/results" method="get" target="_blank">
+    <input id="search-bar" class="form-control" type="text" autofocus type="text" placeholder="Search DynaMed" name="q" alt="Search DynaMed" onkeydown="if(event.keyCode === 13) { this.form.submit(); return false; }">
+</form>
+</div>
+
+<div id="uptodateDIV" class="none">
+<form id="search-form-b" action="https://www.uptodate.com/contents/search?search" method="get" target="_blank">
+    <input id="search-bar" class="form-control" type="text" autofocus type="text" placeholder="Search UpToDate" name="search" alt="Search UpToDate" onkeydown="if(event.keyCode === 13) { this.form.submit(); return false; }">
+</form>
+</div>
+
+<div id="pubmedDIV" class="none">
+<form id="search-form-ddg" action="https://www.ncbi.nlm.nih.gov/pubmed/" method="get" target="_blank">
+    <input id="search-bar" class="form-control" type="text" autofocus type="text" placeholder="Search PubMed" name="term" alt="Search PubMed" onkeydown="if(event.keyCode === 13) { this.form.submit(); return false; }">
+</form>
+</div>
+
+<div id="googlescholarDIV" class="none">
+<form id="search-form-ddg" action="https://scholar.google.com/scholar?scholar" method="get" target="_blank">
+    <input id="search-bar" class="form-control" type="text" autofocus type="text" placeholder="Search Google Scholar" name="q" alt="Search Google Scholar" onkeydown="if(event.keyCode === 13) { this.form.submit(); return false; }">
+</form>
+</div>
+
+<style> 
+.none { display:none; }, 
+.showDIV { display:block; } 
+</style>
+
+</body>
+
+
 
 
 
@@ -71,13 +214,13 @@
                     <h5 class="card-title groupTitle">Flu Data</h5>                        
                     <ul class="list-group list-group-flush groupListList">
                         
-                            <li class="list-group-item groupListListItem"><a href="./flu_dashboard.html" target="_self" class="groupLink"><i class="fas fa-map-marked-alt"></i>&nbsp;<span class="groupText">Real-time Flu Dashboard</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="./flu_dashboard.html" title="" target="_self" class="groupLink"><i class="fas fa-map-marked-alt"></i>&nbsp;<span class="groupText">Real-time Flu Dashboard</span></a></li>
                         
-                            <li class="list-group-item groupListListItem"><a href="https://testflusurvey.formr.org" target="_self" class="groupLink"><i class="fas fa-certificate"></i>&nbsp;<span class="groupText">Flu Survey</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="https://testflusurvey.formr.org" title="A website for flu information and real-time flu tracking" target="_self" class="groupLink"><i class="fas fa-certificate"></i>&nbsp;<span class="groupText">Flu Survey</span></a></li>
                         
-                            <li class="list-group-item groupListListItem"><a href="./flu.html" target="_self" class="groupLink"><i class="fas fa-certificate"></i>&nbsp;<span class="groupText">Flu Survey Analysis</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="./flu.html" title="" target="_self" class="groupLink"><i class="fas fa-certificate"></i>&nbsp;<span class="groupText">Flu Survey Analysis</span></a></li>
                         
-                            <li class="list-group-item groupListListItem"><a href="https://github.com/bmuchmore/pins/blob/master/flu/data.csv" target="_self" class="groupLink"><i class="fas fa-certificate"></i>&nbsp;<span class="groupText">Flu Survey Data</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="https://github.com/bmuchmore/pins/blob/master/flu/data.csv" title="" target="_self" class="groupLink"><i class="fas fa-certificate"></i>&nbsp;<span class="groupText">Flu Survey Data</span></a></li>
                         
                     </ul>
                 </div>
@@ -88,15 +231,15 @@
                     <h5 class="card-title groupTitle">Public Resources</h5>                        
                     <ul class="list-group list-group-flush groupListList">
                         
-                            <li class="list-group-item groupListListItem"><a href="https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">CDC National, Regional, and State Level Outpatient Illness and Viral Surveillance</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html" title="" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">CDC National, Regional, and State Level Outpatient Illness and Viral Surveillance</span></a></li>
                         
-                            <li class="list-group-item groupListListItem"><a href="https://gis.cdc.gov/grasp/fluview/flu_by_age_virus.html" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">CDC Age Group Distribution of Influenza Positive Tests Reported by Public Health Laboratories</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="https://gis.cdc.gov/grasp/fluview/flu_by_age_virus.html" title="" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">CDC Age Group Distribution of Influenza Positive Tests Reported by Public Health Laboratories</span></a></li>
                         
-                            <li class="list-group-item groupListListItem"><a href="https://www.who.int/influenza/surveillance_monitoring/updates/latest_update_GIP_surveillance/en/" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">WHO Influenza Update</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="https://www.who.int/influenza/surveillance_monitoring/updates/latest_update_GIP_surveillance/en/" title="" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">WHO Influenza Update</span></a></li>
                         
-                            <li class="list-group-item groupListListItem"><a href="https://flunearyou.org/#!/" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">Flu Near You</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="https://flunearyou.org/#!/" title="" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">Flu Near You</span></a></li>
                         
-                            <li class="list-group-item groupListListItem"><a href="https://www.google.org/flutrends/about/" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">Google Flu Trends</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="https://www.google.org/flutrends/about/" title="" target="_self" class="groupLink"><i class="fas fa-chart-line"></i>&nbsp;<span class="groupText">Google Flu Trends</span></a></li>
                         
                     </ul>
                 </div>

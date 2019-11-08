@@ -34,7 +34,7 @@
     - title: Flu Near You
       url: https://flunearyou.org/#!/
       icon: fas fa-chart-line 
-      description: "" 
+      description: ""       
     - title: Google Flu Trends
       url: https://www.google.org/flutrends/about/
       icon: fas fa-chart-line 
