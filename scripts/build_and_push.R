@@ -2,7 +2,7 @@
 library(git2r)
 
 # system(
-#   'echo brian | sudo -S echo GITHUB_PAT="4de08ff7a956625cb232c57477358a6b9a0d93cc"',
+#   'echo brian | sudo -S echo ',
 #   intern = FALSE,
 #   ignore.stdout = FALSE,
 #   ignore.stderr = FALSE,
@@ -20,12 +20,5 @@ merge(repo, "upstream/master")
 add(repo, "*")
 status(repo)
 commit(repo, ".", session = TRUE)
-
-
-
-
-
-
-
 cred <- cred_token()
 push(repo, credentials = cred)
