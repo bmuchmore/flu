@@ -1,5 +1,32 @@
+baseURL = "https://example.com/"
+languageCode = "en-US"
+title = "Flu Tracker"
 theme = "bootstrap-bp-hugo-startpage"
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+# googleAnalytics = "UA-123-45"
+copyright = "Brian Muchmore"
+enableRobotsTXT = true
+pygmentsCodeFences = true
+canonifyurls = true
+paginate = 5
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[sitemap]
+    changefreq = "weekly"
+    priority = 0.5
+
+[permalinks]
+    posts = "/:year/:month/:slug/"
+    post = "/:year/:month/:slug/"
+    pages = "/:slug/"
+    page = "/:slug/"
+
+[Author]  
+  name = "Brian Muchmore"
+
+[params]
+  description = "A website for flu information and real-time flu tracking"
+  startPageColumns = true
+  welcomeText = "Flu Tracker"
+  showGoogleSearch = false
+  showBingSearch = false
+  showDuckDuckGoSearch = false  
