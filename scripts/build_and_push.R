@@ -1,4 +1,5 @@
 ## https://popgen.nescent.org/CONTRIBUTING_WITH_GIT2R.html
+## https://github.com/settings/tokens
 library(git2r)
 
 # system(
@@ -11,14 +12,16 @@ library(git2r)
 #   timeout = 0
 # )
 
+rmarkdown::render("/home/brian/Desktop/flu/static/flu_dashboard.Rmd")
+
 repo <- repository(path = "/home/brian/Desktop/flu", discover = TRUE)
-remote_add(repo, name = "upstream", url = "https://github.com/bmuchmore/flu.git")
+remote_add(repo, name = "flu", url = "https://github.com/bmuchmore/flu.git")
 remotes(repo)
 checkout(repo, "master")
-fetch(repo, name = "upstream")
-merge(repo, "upstream/master")
-add(repo, "*")
+fetch(repo, name = "flu")
+merge(repo, "flu/master")
+git2r::add(repo, "*")
 status(repo)
-commit(repo, ".", session = TRUE)
+commit(repo, message = ".", all = TRUE, session = TRUE)
 cred <- cred_token()
 push(repo, credentials = cred)
