@@ -1,0 +1,534 @@
+---
+title: "Vermont Flu Map"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: spacelab
+    orientation: rows
+    vertical_layout: fill
+    social: ["menu"]
+    navbar:
+      - {title: "Home", href: "https://example.com/about", align: right}
+---
+
+```{r, include = FALSE}
+library(flexdashboard)
+library(leaflet)
+library(stringr)
+library(sf)
+library(tidyverse)
+library(crosstalk)
+library(magrittr)
+library(leafsync)
+library(leaflet.minicharts)
+library(dplyr)
+library(tidyr)
+library(formr)
+library(leaflet.extras)
+library(readr)
+library(htmltools)
+library(DT)
+library(labelled)
+library(purrr)
+library(lubridate)
+library(readr)
+library(manipulateWidget)
+library(rpivotTable)
+library(widgetframe)
+
+options(tigris_use_cache = TRUE)
+
+knitr::opts_chunk$set(widgetframe_self_contained = FALSE)
+knitr::opts_chunk$set(widgetframe_isolate_widgets = TRUE)
+  knitr::opts_chunk$set(widgetframe_widgets_dir = 'widgets' ) 
+
+vermont_zip_data <- read_rds("/home/brian/Desktop/flu/data/vermont_zip_data")
+vermont_zip_geo <- read_rds("/home/brian/Desktop/flu/data/vermont_zip_geo")
+```
+
+```{r, include = FALSE}
+formr_connect(email = "bmuchmore@gmail.com", password = "dogsdogs" )
+results <- formr_results("testflusurvey")
+
+zipfix <- function(x) {
+  if (nchar(x) == 5) {
+    x
+  } else {
+    substring(x, 2)
+  }
+}
+
+filtered_results <- results %>%
+  remove_labels() %>%
+  remove_attributes("haven_labelled") %>%
+  mutate(had_flu_in_past_year = coalesce(child_had_flu_in_past_year, juvenile_had_flu_in_past_year, teenage_had_flu_in_past_year, young_adult_had_flu_in_past_year, older_adult_had_flu_in_past_year, oldest_adult_had_flu_in_past_year)) %>%
+  select(-child_had_flu_in_past_year, -juvenile_had_flu_in_past_year, -teenage_had_flu_in_past_year, -young_adult_had_flu_in_past_year, -older_adult_had_flu_in_past_year, -oldest_adult_had_flu_in_past_year) %>%
+  mutate(has_flu_currently = coalesce(child_has_flu, juvenile_has_flu, teenage_has_flu, young_adult_has_flu, older_adult_has_flu, oldest_adult_has_flu)) %>%
+  select(-child_has_flu, -juvenile_has_flu, -teenage_has_flu, -young_adult_has_flu, -older_adult_has_flu, -oldest_adult_has_flu) %>%
+  mutate(received_shot_last_year = coalesce(child_received_shot_last_year, juvenile_received_shot_last_year, teenage_received_shot_last_year, young_adult_received_shot_last_year, older_adult_received_shot_last_year, oldest_adult_received_shot_last_year)) %>%
+  select(-child_received_shot_last_year, -juvenile_received_shot_last_year, -teenage_received_shot_last_year, -young_adult_received_shot_last_year, -older_adult_received_shot_last_year, -oldest_adult_received_shot_last_year) %>%
+  mutate(already_received_shot = coalesce(child_already_received_shot, juvenile_already_received_shot, teenage_already_received_shot, young_adult_already_received_shot, older_adult_already_received_shot, oldest_adult_already_received_shot)) %>%
+  select(-child_already_received_shot, -juvenile_already_received_shot, -teenage_already_received_shot, -young_adult_already_received_shot, -older_adult_already_received_shot, -oldest_adult_already_received_shot) %>%
+  mutate(shot_today = coalesce(child_will_get_shot_today, juvenile_will_get_shot_today, teenage_will_get_shot_today, young_adult_will_get_shot_today, older_adult_will_get_shot_today, oldest_adult_will_get_shot_today)) %>%
+  select(-child_will_get_shot_today, -juvenile_will_get_shot_today, -teenage_will_get_shot_today, -young_adult_will_get_shot_today, -older_adult_will_get_shot_today, -oldest_adult_will_get_shot_today) %>%
+  mutate(no_shot_explanation = coalesce(child_will_not_get_shot_today_explanation, juvenile_will_not_get_shot_today_explanation, teenage_will_not_get_shot_today_explanation, young_adult_will_not_get_shot_today_explanation, older_adult_will_not_get_shot_today_explanation, oldest_adult_will_not_get_shot_today_explanation)) %>%
+  select(-child_will_not_get_shot_today_explanation, -juvenile_will_not_get_shot_today_explanation, -teenage_will_not_get_shot_today_explanation, -young_adult_will_not_get_shot_today_explanation, -older_adult_will_not_get_shot_today_explanation, -oldest_adult_will_not_get_shot_today_explanation) %>%
+  filter(!is.na(who_is_taking_survey)) %>%
+  drop_na(zipcode) %>%
+  drop_na(who_is_taking_survey) %>%
+  filter(!grepl("Windows", browser)) %>%
+  mutate(annul_results = as.character(annul_results)) %>%
+  filter(annul_results == "2") %>%
+  filter(survey_already_offered == "2") %>%
+  select(-session, -annul_results, -survey_already_offered, -browser, -created, -modified, -last_outside_referrer, -expired, -ip_address) 
+
+filtered_results <- filtered_results %>%
+  mutate(zipcode = as.character(zipcode))
+filtered_results$zipcode <- sub("^", 0, filtered_results$zipcode)
+filtered_results <- filtered_results %>%
+  mutate(zipcode = map(zipcode, ~zipfix(.x))) %>%
+  mutate(zipcode = as.character(zipcode))
+
+recoded_data <- filtered_results %>%
+  select(-ended) %>%
+  mutate_all(as.integer) %>%
+  mutate(flu_shot_available = recode(.[["flu_shot_available"]], `1` = "Yes", `2` = "No")) %>%
+  mutate(had_flu_in_past_year = recode(.[["had_flu_in_past_year"]], `1` = "Yes", `2` = "No")) %>%
+  mutate(has_flu_currently = recode(.[["has_flu_currently"]], `1` = "Yes", `2` = "No")) %>%
+  mutate(received_shot_last_year = recode(.[["received_shot_last_year"]], `1` = "Yes", `2` = "No")) %>%
+  mutate(already_received_shot = recode(.[["already_received_shot"]], `1` = "Yes", `2` = "No")) %>%
+  mutate(shot_today = recode(.[["shot_today"]], `0` = "Not Answered", `1` = "Yes", `2` = "No")) %>%
+  mutate(vaccine_given_in_clinic = recode(.[["vaccine_given_in_clinic"]], `1` = "Yes", `2` = "No")) %>%
+  mutate(
+    no_shot_explanation = 
+      recode(
+        .[["no_shot_explanation"]],
+        `0` = "Not Answered",
+        `1` = "Not the season", 
+        `2` = "Not available", 
+        `3` = "I think the flu shot can give you the flu", 
+        `4` = "Healthy and not needed", 
+        `5` = "It is not necessary to get one every year", 
+        `6` = "Other"
+      )
+  ) %>%
+  mutate(
+    who_is_taking_survey = 
+      recode(
+        .[["who_is_taking_survey"]],
+        `1` = "0-4", 
+        `2` = "5-17", 
+        `3` = "5-17", 
+        `4` = "18-49", 
+        `5` = "50-64", 
+        `6` = "65+"
+      )
+  )
+recoded_data <- recoded_data %>%
+  mutate(zipcode = as.character(zipcode))
+recoded_data$zipcode <- sub("^", 0, recoded_data$zipcode)
+recoded_data <- recoded_data %>%
+  mutate(zipcode = map(zipcode, ~zipfix(.x))) %>%
+  mutate_all(as.character) %>%
+  rename(
+    "Was the flu shot available?" = "flu_shot_available",
+    "Age of participant" = "who_is_taking_survey",
+    "Zipcode" = "zipcode",
+    "Prediction of next flu season severity" = "flu_season_prediction",
+    "Was the vaccine given in clinic?" = "vaccine_given_in_clinic",
+    "Did they have flu symptoms last year?" = "had_flu_in_past_year",
+    "Do they currently have flu symptoms?" = "has_flu_currently",
+    "Did they receive the flu vaccine last year?" = "received_shot_last_year",
+    "Have they already receive the flu vaccine?" = "already_received_shot",
+    "Do they plan on getting the flu vaccine today?" = "shot_today",
+    "Why will they not get the flu vaccine?" = "no_shot_explanation"
+  )
+```
+
+```{r, include = FALSE}
+edu_palette <- colorNumeric(
+  palette = "magma", 
+  domain = vermont_zip_data$edu
+)
+vt_edu <- vermont_zip_data %>%
+  st_transform(crs = "+init=epsg:4326") %>%
+  leaflet(width = "100%", height = "600px") %>%
+  addProviderTiles(provider = "CartoDB.Positron") %>%
+  addPolygons(
+    popup = ~zip,
+    stroke = FALSE,
+    smoothFactor = 0,
+    fillOpacity = 0.7,
+    color = ~edu_palette(edu)
+  ) %>%
+  addLegend(
+    "bottomright", 
+    pal = edu_palette, 
+    values = ~edu,
+    title = "Education by Zip",
+    opacity = 1
+  )
+
+
+age_palette <- colorNumeric(
+  palette = "inferno", 
+  domain = vermont_zip_data$age
+)
+vt_age <- vermont_zip_data %>%
+  st_transform(crs = "+init=epsg:4326") %>%
+  leaflet(width = "100%", height = "600px") %>%
+  addProviderTiles(provider = "CartoDB.Positron") %>%
+  addPolygons(
+    popup = ~zip,
+    stroke = FALSE,
+    smoothFactor = 0,
+    fillOpacity = 0.7,
+    color = ~age_palette(age)
+  ) %>%
+  addLegend(
+    "bottomright", 
+    pal = age_palette, 
+    values = ~age,
+    title = "Median Age by Zip",
+    opacity = 1
+  )
+
+
+
+pop_palette <- colorNumeric(
+  palette = "plasma", 
+  domain = vermont_zip_data$pop
+)
+vt_pop <- vermont_zip_data %>%
+  st_transform(crs = "+init=epsg:4326") %>%
+  leaflet(width = "100%", height = "600px") %>%
+  addProviderTiles(provider = "CartoDB.Positron") %>%
+  addPolygons(
+    popup = ~zip,
+    stroke = FALSE,
+    smoothFactor = 0,
+    fillOpacity = 0.7,
+    color = ~pop_palette(pop)
+  ) %>%
+  addLegend(
+    "bottomright", 
+    pal = pop_palette, 
+    values = ~pop,
+    title = "Population by Zip",
+    opacity = 1
+  )
+
+
+
+income_palette <- colorNumeric(
+  palette = "viridis", 
+  domain = vermont_zip_data$income
+)
+vt_income <- vermont_zip_data %>%
+  st_transform(crs = "+init=epsg:4326") %>%
+  leaflet(width = "100%", height = "600px") %>%
+  addProviderTiles(provider = "CartoDB.Positron") %>%
+  addPolygons(
+    popup = ~zip,
+    stroke = FALSE,
+    smoothFactor = 0,
+    fillOpacity = 0.7,
+    color = ~income_palette(income)
+  ) %>%
+  addLegend(
+    "bottomright", 
+    pal = income_palette, 
+    values = ~income,
+    title = "Median Income by Zip",
+    labFormat = labelFormat(prefix = "$"),
+    opacity = 1
+  )
+
+```
+
+```{r, include = FALSE}
+save_tags <- function (tags, file, selfcontained = F, libdir = "./lib") 
+{
+  if (is.null(libdir)) {
+    libdir <- paste(tools::file_path_sans_ext(basename(file)), 
+                    "_files", sep = "")
+  }
+  htmltools::save_html(tags, file = file, libdir = libdir)
+  if (selfcontained) {
+    if (!htmlwidgets:::pandoc_available()) {
+      stop("Saving a widget with selfcontained = TRUE requires pandoc. For details see:\n", 
+           "https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md")
+    }
+    htmlwidgets:::pandoc_self_contained_html(file, file)
+    unlink(libdir, recursive = TRUE)
+  }
+  return(file)
+}
+zip_sync <- leafsync::sync(
+  vt_age,
+  vt_income,
+  vt_pop,
+  vt_edu
+)
+save_tags(zip_sync, "zip_sync.html", selfcontained = FALSE)
+```
+
+Real-time Flu Map {data-icon="fa-map-marked"}
+=====================================
+
+Row
+-----------------------------------------------------------------------
+
+### Active Cases
+
+```{r}
+current_cases <- 11
+valueBox(current_cases, caption = NULL, icon = "fa-diagnoses", color = ifelse(current_cases > 10, "red", "green"), href = NULL)
+```
+
+### Last Updated
+
+```{r}
+valueBox(Sys.time(), caption = NULL, icon = "fa-hourglass", color = "white", href = NULL)
+```
+
+### Number Reporting
+
+```{r}
+current_cases <- 20
+valueBox(current_cases, caption = NULL, icon = "fa-users", color = "blue", href = NULL)
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Active Cases within the Last Week
+
+```{r}
+date1 <- as.POSIXct(Sys.Date() - 7)
+date2 <- as.POSIXct(Sys.Date() + 1)
+time_interval <- interval(date1, date2)
+time_filtered <- filtered_results[filtered_results$ended %within% time_interval, ]
+current_cases <- time_filtered %>%
+  select(-ended) %>%
+  as_tibble() %>%
+  group_by(zipcode) %>%
+  count(has_flu_currently) %>%
+  filter(has_flu_currently == 1) %>%
+  inner_join(vermont_zip_geo, by = c("zipcode" = "zip")) %>%
+  select(-geometry, -city) %>%
+  spread(has_flu_currently, n) %>%
+  ungroup() 
+if ("1" %in% names(current_cases)) {
+current_cases <- current_cases %>%
+  rename("Current cases" = "1")
+} else {
+current_cases <- current_cases %>%
+  mutate(change_me = "No Reported Cases") %>%
+  rename("Current cases" = "change_me")
+}
+former_cases <- filtered_results %>%
+  select(-ended) %>%
+  as_tibble() %>%
+  group_by(zipcode) %>%
+  count(had_flu_in_past_year) %>%
+  filter(had_flu_in_past_year == 1) %>%
+  inner_join(vermont_zip_geo, by = c("zipcode" = "zip")) %>%
+  select(-geometry, -city) %>%
+  spread(had_flu_in_past_year, n) %>%
+  ungroup()
+if ("1" %in% names(former_cases)) {
+former_cases <- former_cases %>%
+  rename("Past cases" = "1")
+} else {
+former_cases <- former_cases %>%
+  mutate(change_me = "No Reported Cases") %>%
+  rename("Past cases" = "change_me")
+}
+leaflet_cases <- vermont_zip_data %>%
+  st_transform(crs = "+init=epsg:4326") %>%
+  leaflet(width = "100%", height = "600px") %>%
+  addFullscreenControl() %>%
+  addProviderTiles(provider = "CartoDB.Positron") %>%
+  addPolylines(
+    popup = ~zip,
+    stroke = TRUE,
+    color = "black",
+    weight = 0.5,
+    opacity = 0.5,
+    smoothFactor = 0,
+    fill = FALSE
+  ) 
+if (nrow(former_cases) > 0) {
+leaflet_cases <- leaflet_cases %>%
+  addMinicharts(
+    jitter(as.numeric(former_cases$longitude), factor = 0.015),
+    jitter(as.numeric(former_cases$latitude), factor = 0.015),
+    chartdata = select(former_cases, -zipcode, -latitude, -longitude),
+    fillColor = "#ffff00",
+    showLabels = TRUE
+    # width = 30 * sqrt(as.numeric(former_cases[["Past cases"]])) / sqrt(max(as.numeric(former_cases[["Past cases"]]))),
+    # height = 30 * sqrt(as.numeric(former_cases[["Past cases"]])) / sqrt(max(as.numeric(former_cases[["Past cases"]]))),
+  )
+}
+if (nrow(current_cases) > 0) {
+leaflet_cases <- leaflet_cases %>%
+  addMinicharts(
+    as.numeric(current_cases$longitude),
+    as.numeric(current_cases$latitude),
+    chartdata = select(current_cases, -zipcode, -latitude, -longitude),
+    fillColor = "#ff0000",
+    showLabels = TRUE,
+    legend = TRUE
+    # width = 30 * sqrt(as.numeric(current_cases[["Current cases"]])) / sqrt(max(as.numeric(current_cases[["Current cases"]]))),
+    # height = 30 * sqrt(as.numeric(current_cases[["Current cases"]])) / sqrt(max(as.numeric(current_cases[["Current cases"]]))),
+  )
+} else {
+no_cases_tag <- tags$div(
+   HTML('
+     <div class="alert alert-success">
+       <strong>No current cases</strong>        
+     </div>
+  ')
+)  
+leaflet_cases <- leaflet_cases %>%
+   addControl(no_cases_tag, position = "bottomleft")
+}
+leaflet_cases
+```
+
+### Flu Vaccines Given within the Last Year
+
+```{r}
+vaccine_given <- filtered_results %>%
+  select(-ended) %>%
+  as_tibble() %>%
+  group_by(zipcode) %>%
+  count(vaccine_given_in_clinic) %>%
+  inner_join(vermont_zip_geo, by = c("zipcode" = "zip")) %>%
+  select(-geometry, -city) %>%
+  spread(vaccine_given_in_clinic, n) %>%
+  ungroup() 
+if ("1" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine given" = "1") 
+} else if ("2" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine not given" = "2")
+} else if ("1" %in% names(vaccine_given) && "2" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine given" = "1") %>%
+  rename("Vaccine not given" = "2")
+} else {
+vaccine_given <- vaccine_given %>%
+  mutate(change_me_1 = "Vaccine given") %>%
+  mutate(change_me_2 = "Vaccine not given") %>%
+  rename("Vaccine given" = "change_me_1") %>%
+  rename("Vaccine not given" = "change_me_2")
+}
+leaflet_vaccine <- vermont_zip_data %>%
+  st_transform(crs = "+init=epsg:4326") %>%
+  leaflet(width = "100%", height = "600px") %>%
+  addFullscreenControl() %>%
+  addProviderTiles(provider = "CartoDB.Positron") %>%
+  addPolylines(
+    popup = ~zip,
+    stroke = TRUE,
+    color = "black",
+    weight = 0.5,
+    opacity = 0.5,
+    smoothFactor = 0,
+    fill = FALSE
+  )
+if (nrow(vaccine_given) > 0) {
+leaflet_vaccine <- leaflet_vaccine %>%
+  addMinicharts(
+    as.numeric(vaccine_given$longitude),
+    as.numeric(vaccine_given$latitude),
+    chartdata = select(vaccine_given, -zipcode, -latitude, -longitude),
+    fillColor = "#00ff00",
+    showLabels = TRUE
+    # width = 30 * sqrt(as.numeric(vaccine_given[["Vaccine given"]])) / sqrt(max(as.numeric(vaccine_given[["Vaccine given"]]))),
+    # height = 30 * sqrt(as.numeric(vaccine_given[["Vaccine given"]])) / sqrt(max(as.numeric(vaccine_given[["Vaccine given"]]))),
+  )
+} else {
+no_vaccine_tag <- tags$div(
+   HTML('
+     <div class="alert alert-warning">
+       <strong>No current vacinations</strong>        
+     </div>
+  ')
+)  
+leaflet_vaccine <- leaflet_vaccine %>%
+   addControl(no_vaccine_tag, position = "bottomleft")
+}
+leaflet_vaccine
+```
+
+Linked Census Map {data-navmenu="Census Data" data-icon="fa-map-marked"}
+=====================================
+
+```{r}
+# htmltools::tags$iframe(
+#   src = "zip_sync.html",
+#   scrolling = "no",
+#   seamless = "seamless",
+#   frameBorder = "0",
+#   style = "width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden;"
+htmltools::tags$iframe(
+  src = "zip_sync.html",
+  scrolling = "yes",
+  seamless = "seamless",
+  frameBorder = "0",
+  style = "border:0; top:0; left:0; right:0; bottom:0; width:100%; height:calc(100vh - 80px) !important"
+)
+```
+
+Data Table {data-icon="fa-table"}
+=====================================   
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Survey Data
+
+```{r}
+recoded_data %>%
+  mutate_all(as.factor) %>%
+  datatable(
+    filter = list(position = "top", clear = FALSE),
+    rownames = FALSE,
+    extensions = "Buttons",
+    options = list(
+      bPaginate = FALSE,
+      dom = "Brtip",
+      buttons =
+        list("copy", list(
+          extend = "collection",
+          buttons = c("csv", "excel", "pdf"),
+          text = "Download"
+        )
+        )
+    )
+  )
+```
+
+### Pivot Table
+
+```{r}
+rpivotTable(
+  data = recoded_data,
+  rows = "Age of participant",
+  cols = "Was the vaccine given in clinic?",
+  aggregatorName = "Count",
+  vals = NULL,
+  rendererName = "Horizontal Bar Chart",
+  sorter = NULL,
+  exclusions = NULL,
+  inclusions = NULL,
+  locale = "en",
+  subtotals = FALSE,
+  width = 800,
+  height = 600,
+  elementId = NULL
+)
+```

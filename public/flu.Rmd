@@ -1,0 +1,52 @@
+---
+title: "Flu Survey Stats"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+    code_folding: 'hide'
+    self_contained: true
+  pdf_document:
+    toc: yes
+    toc_depth: 4
+    latex_engine: xelatex
+---
+
+```{r}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  error = TRUE,
+  echo = FALSE
+)
+```
+
+```{r}
+library(ggplot2)
+ggplot2::theme_set(ggplot2::theme_bw())
+pander::panderOptions("table.split.table", Inf)
+```
+
+```{r}
+library(formr)
+library(dplyr)
+formr_connect(email = "bmuchmore@gmail.com", password = "dogsdogs" )
+codebook_data  <- formr_results("testflusurvey") %>%
+  select(-session, -created, - modified, -ended) %>%
+  select(-expired, -last_outside_referrer, -ip_address, -browser)
+```
+
+```{r}
+library(codebook) 
+
+codebook_data <- detect_missing(
+  codebook_data,
+  only_labelled = TRUE,
+  negative_values_are_missing = FALSE,
+  ninety_nine_problems = TRUE
+  )
+
+codebook(codebook_data)
+
+```
