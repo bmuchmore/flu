@@ -1,9 +1,13 @@
 ---
-- group: Flu Data
+- group: Flu and Census Data
   items:
     - title: Real-time Flu Dashboard
       url: /flu_dashboard.html
       icon: fas fa-map-marked-alt
+      description: ""
+    - title: Census Data
+      url: /census_trelliscope/index.html
+      icon: fas fa-user-edit
       description: ""
     - title: Flu Survey
       url: https://testflusurvey.formr.org
