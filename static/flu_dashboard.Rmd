@@ -270,38 +270,7 @@ zip_sync <- leafsync::sync(
 save_tags(zip_sync, "zip_sync.html", selfcontained = FALSE)
 ```
 
-Real-time Flu Map {data-icon="fa-map-marked"}
-=====================================
-
-Row
------------------------------------------------------------------------
-
-### Active Cases
-
-```{r}
-current_cases <- 11
-valueBox(current_cases, caption = NULL, icon = "fa-diagnoses", color = ifelse(current_cases > 10, "red", "green"), href = NULL)
-```
-
-### Last Updated
-
-```{r}
-valueBox(Sys.time(), caption = NULL, icon = "fa-hourglass", color = "white", href = NULL)
-```
-
-### Number Reporting
-
-```{r}
-current_cases <- 20
-valueBox(current_cases, caption = NULL, icon = "fa-users", color = "blue", href = NULL)
-```
-
-Row
------------------------------------------------------------------------
-
-### Active Cases within the Last Week
-
-```{r}
+```{r, include = FALSE}
 date1 <- as.POSIXct(Sys.Date() - 7)
 date2 <- as.POSIXct(Sys.Date() + 1)
 time_interval <- interval(date1, date2)
@@ -342,6 +311,77 @@ former_cases <- former_cases %>%
   mutate(change_me = "No Reported Cases") %>%
   rename("Past cases" = "change_me")
 }
+
+vaccine_given <- filtered_results %>%
+  select(-ended) %>%
+  as_tibble() %>%
+  group_by(zipcode) %>%
+  count(vaccine_given_in_clinic) %>%
+  inner_join(vermont_zip_geo, by = c("zipcode" = "zip")) %>%
+  select(-geometry, -city) %>%
+  spread(vaccine_given_in_clinic, n) %>%
+  ungroup() 
+if ("1" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine given" = "1") %>%
+  rename("Vaccine not given" = "2")
+} else if ("2" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine given" = "1") %>%
+  rename("Vaccine not given" = "2")
+} else if ("1" %in% names(vaccine_given) && "2" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine given" = "1") %>%
+  rename("Vaccine not given" = "2")
+} else {
+vaccine_given <- vaccine_given %>%
+  mutate(change_me_1 = "Vaccine given") %>%
+  mutate(change_me_2 = "Vaccine not given") %>%
+  rename("Vaccine given" = "change_me_1") %>%
+  rename("Vaccine not given" = "change_me_2")
+}
+
+if (is.data.frame(current_cases) && nrow(current_cases) == 0) {
+  active <- 0
+} else {
+  active <- sum(current_cases["Current cases"])
+}
+```
+
+Real-time Flu Map {data-icon="fa-map-marked"}
+=====================================
+
+Row
+-----------------------------------------------------------------------
+
+### Active Cases
+
+```{r}
+if (is.data.frame(current_cases) && nrow(current_cases) == 0) {
+  valueBox(0, caption = NULL, icon = "fa-diagnoses", color = "green", href = NULL)
+} else {
+  valueBox(sum(current_cases["Current cases"]), caption = NULL, icon = "fa-diagnoses", color = "red", href = NULL)
+}
+```
+
+### Last Updated
+
+```{r}
+valueBox(Sys.time(), caption = NULL, icon = "fa-hourglass", color = "white", href = NULL)
+```
+
+### Number Reporting
+
+```{r}
+valueBox(nrow(recoded_data), caption = NULL, icon = "fa-users", color = "blue", href = NULL)
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Active Cases within the Last Week
+
+```{r}
 leaflet_cases <- vermont_zip_data %>%
   st_transform(crs = "+init=epsg:4326") %>%
   leaflet(width = "100%", height = "600px") %>%
@@ -397,34 +437,6 @@ leaflet_cases
 ### Flu Vaccines Given within the Last Year
 
 ```{r}
-vaccine_given <- filtered_results %>%
-  select(-ended) %>%
-  as_tibble() %>%
-  group_by(zipcode) %>%
-  count(vaccine_given_in_clinic) %>%
-  inner_join(vermont_zip_geo, by = c("zipcode" = "zip")) %>%
-  select(-geometry, -city) %>%
-  spread(vaccine_given_in_clinic, n) %>%
-  ungroup() 
-if ("1" %in% names(vaccine_given)) {
-vaccine_given <- vaccine_given %>%
-  rename("Vaccine given" = "1") %>%
-  rename("Vaccine not given" = "2")
-} else if ("2" %in% names(vaccine_given)) {
-vaccine_given <- vaccine_given %>%
-  rename("Vaccine given" = "1") %>%
-  rename("Vaccine not given" = "2")
-} else if ("1" %in% names(vaccine_given) && "2" %in% names(vaccine_given)) {
-vaccine_given <- vaccine_given %>%
-  rename("Vaccine given" = "1") %>%
-  rename("Vaccine not given" = "2")
-} else {
-vaccine_given <- vaccine_given %>%
-  mutate(change_me_1 = "Vaccine given") %>%
-  mutate(change_me_2 = "Vaccine not given") %>%
-  rename("Vaccine given" = "change_me_1") %>%
-  rename("Vaccine not given" = "change_me_2")
-}
 leaflet_vaccine <- vermont_zip_data %>%
   st_transform(crs = "+init=epsg:4326") %>%
   leaflet() %>%
@@ -464,7 +476,7 @@ leaflet_vaccine <- leaflet_vaccine %>%
 leaflet_vaccine
 ```
 
-Data Table {data-icon="fa-table"}
+Data Tables {data-icon="fa-table"}
 =====================================   
 
 Column {.tabset}
