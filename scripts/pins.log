@@ -1537,3 +1537,7 @@ Error in curl::curl_fetch_memory(url, handle = handle) :
   Could not resolve host: api.github.com
 Calls: board_register ... request_fetch -> request_fetch.write_memory -> <Anonymous>
 Execution halted
+Error in board_initialize.github(board, ...) : 
+  The repo 'bmuchmore/pins' does not exist or can't be accessed: Bad credentials
+Calls: board_register ... new_board -> board_initialize -> board_initialize.github
+Execution halted
