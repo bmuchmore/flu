@@ -7,7 +7,7 @@ output:
     vertical_layout: fill
     social: ["menu"]
     navbar:
-      - {title: "Home", href: "https://example.com/about", align: right}
+      - {title: "Home", href: "https://flutracts.org", align: right}
 ---
 
 ```{r, include = FALSE}
@@ -27,6 +27,7 @@ library(purrr)
 library(lubridate)
 library(readr)
 library(rpivotTable)
+library(heatmaply)
 # library(widgetframe)
 # library(crosstalk)
 # library(manipulateWidget)
@@ -526,3 +527,43 @@ rpivotTable(
   elementId = NULL
 )
 ```
+
+### Correlation Plot
+
+```{r}
+
+recoded_data[is.na(recoded_data)] <- 0
+
+cor_input <- recoded_data %>%
+  select(-"Survey date", -Zipcode, ) %>%
+  mutate_all(as.factor) %>%
+  mutate_all(as.numeric) %>%
+  cor(method = "spearman")
+
+cor_input[is.na(cor_input)] <- 0
+
+cor_input %>%
+  heatmaply_cor(
+    margins = c(40, 40),
+    k_col = 2, 
+    k_row = 2
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
