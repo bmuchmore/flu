@@ -1,17 +1,10 @@
-library(leaflet)
-library(stringr)
 library(sf)
-library(tidyverse)
 library(tidycensus)
-library(crosstalk)
 library(zipcode)
 library(magrittr)
-library(leafsync)
-library(leaflet.minicharts)
 library(purrr)
 library(magrittr)
 library(foreach)
-library(microbenchmark)
 library(trelliscopejs)
 
 census_api_key(
@@ -21,7 +14,7 @@ census_api_key(
 )
 
 acs_variables <- load_variables(2017, "acs5", cache = TRUE)
-# View(acs_variables)
+View(acs_variables)
 
 data(zipcode)
 zip_list <- zipcode %>%
@@ -97,12 +90,22 @@ foreach_output <- foreach(
   census_func(variables[[i]])
 }
 
+descriptors <- variables %>%
+  as_tibble() %>%
+  rename(descriptor = value) %>%
+  inner_join(acs_variables, by = c("descriptor" = "name")) %>%
+  select(-concept)
+descriptors$label <- gsub("Estimate!!Total!!", "", descriptors$label)
+
 census_output <- foreach_output %>%
   tibble(panel = .) %>%
   mutate(descriptor = map(panel, ~.x[[1]][["calls"]][[3]][["args"]][[1]][["title"]])) %>%
   mutate(descriptor = as.character(descriptor)) %>%
+  inner_join(descriptors) %>%
+  rename("Census variable" = descriptor) %>%
+  rename("Description" = label) %>%
+  select(panel, "Description", "Census variable") %>%
   write_rds("/home/brian/Desktop/flu/fludata/census_trelliscope_input.rds")
-
 
 
 

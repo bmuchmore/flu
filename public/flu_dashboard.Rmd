@@ -7,7 +7,7 @@ output:
     vertical_layout: fill
     social: ["menu"]
     navbar:
-      - {title: "Home", href: "https://example.com/about", align: right}
+      - {title: "Home", href: "https://flutracts.org/", align: right}
 ---
 
 ```{r, include = FALSE}
@@ -34,20 +34,19 @@ library(readr)
 library(manipulateWidget)
 library(rpivotTable)
 library(widgetframe)
+library(heatmaply)
 
 options(tigris_use_cache = TRUE)
 
-knitr::opts_chunk$set(widgetframe_self_contained = FALSE)
-knitr::opts_chunk$set(widgetframe_isolate_widgets = TRUE)
-  knitr::opts_chunk$set(widgetframe_widgets_dir = 'widgets' ) 
-
-vermont_zip_data <- read_rds("/home/brian/Desktop/flu/data/vermont_zip_data")
-vermont_zip_geo <- read_rds("/home/brian/Desktop/flu/data/vermont_zip_geo")
+vermont_zip_data <- read_rds("/home/brian/Desktop/flu/fludata/vermont_zip_data")
+vermont_zip_geo <- read_rds("/home/brian/Desktop/flu/fludata/vermont_zip_geo")
 ```
+
+TEST
 
 ```{r, include = FALSE}
 formr_connect(email = "bmuchmore@gmail.com", password = "dogsdogs" )
-results <- formr_results("testflusurvey")
+results <- formr_results("vtflusurvey")
 
 zipfix <- function(x) {
   if (nchar(x) == 5) {
@@ -272,38 +271,7 @@ zip_sync <- leafsync::sync(
 save_tags(zip_sync, "zip_sync.html", selfcontained = FALSE)
 ```
 
-Real-time Flu Map {data-icon="fa-map-marked"}
-=====================================
-
-Row
------------------------------------------------------------------------
-
-### Active Cases
-
-```{r}
-current_cases <- 11
-valueBox(current_cases, caption = NULL, icon = "fa-diagnoses", color = ifelse(current_cases > 10, "red", "green"), href = NULL)
-```
-
-### Last Updated
-
-```{r}
-valueBox(Sys.time(), caption = NULL, icon = "fa-hourglass", color = "white", href = NULL)
-```
-
-### Number Reporting
-
-```{r}
-current_cases <- 20
-valueBox(current_cases, caption = NULL, icon = "fa-users", color = "blue", href = NULL)
-```
-
-Row
------------------------------------------------------------------------
-
-### Active Cases within the Last Week
-
-```{r}
+```{r, include = FALSE}
 date1 <- as.POSIXct(Sys.Date() - 7)
 date2 <- as.POSIXct(Sys.Date() + 1)
 time_interval <- interval(date1, date2)
@@ -344,6 +312,77 @@ former_cases <- former_cases %>%
   mutate(change_me = "No Reported Cases") %>%
   rename("Past cases" = "change_me")
 }
+
+vaccine_given <- filtered_results %>%
+  select(-ended) %>%
+  as_tibble() %>%
+  group_by(zipcode) %>%
+  count(vaccine_given_in_clinic) %>%
+  inner_join(vermont_zip_geo, by = c("zipcode" = "zip")) %>%
+  select(-geometry, -city) %>%
+  spread(vaccine_given_in_clinic, n) %>%
+  ungroup() 
+if ("1" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine given" = "1") %>%
+  rename("Vaccine not given" = "2")
+} else if ("2" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine given" = "1") %>%
+  rename("Vaccine not given" = "2")
+} else if ("1" %in% names(vaccine_given) && "2" %in% names(vaccine_given)) {
+vaccine_given <- vaccine_given %>%
+  rename("Vaccine given" = "1") %>%
+  rename("Vaccine not given" = "2")
+} else {
+vaccine_given <- vaccine_given %>%
+  mutate(change_me_1 = "Vaccine given") %>%
+  mutate(change_me_2 = "Vaccine not given") %>%
+  rename("Vaccine given" = "change_me_1") %>%
+  rename("Vaccine not given" = "change_me_2")
+}
+
+if (is.data.frame(current_cases) && nrow(current_cases) == 0) {
+  active <- 0
+} else {
+  active <- sum(current_cases["Current cases"])
+}
+```
+
+Real-time Flu Map {data-icon="fa-map-marked"}
+=====================================
+
+Row
+-----------------------------------------------------------------------
+
+### Active Cases
+
+```{r}
+if (is.data.frame(current_cases) && nrow(current_cases) == 0) {
+  valueBox(0, caption = NULL, icon = "fa-diagnoses", color = "green", href = NULL)
+} else {
+  valueBox(sum(current_cases["Current cases"]), caption = NULL, icon = "fa-diagnoses", color = "red", href = NULL)
+}
+```
+
+### Last Updated
+
+```{r}
+valueBox(Sys.time(), caption = NULL, icon = "fa-hourglass", color = "white", href = NULL)
+```
+
+### Number Reporting
+
+```{r}
+valueBox(nrow(recoded_data), caption = NULL, icon = "fa-users", color = "blue", href = NULL)
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Active Cases within the Last Week
+
+```{r}
 leaflet_cases <- vermont_zip_data %>%
   st_transform(crs = "+init=epsg:4326") %>%
   leaflet(width = "100%", height = "600px") %>%
@@ -399,35 +438,9 @@ leaflet_cases
 ### Flu Vaccines Given within the Last Year
 
 ```{r}
-vaccine_given <- filtered_results %>%
-  select(-ended) %>%
-  as_tibble() %>%
-  group_by(zipcode) %>%
-  count(vaccine_given_in_clinic) %>%
-  inner_join(vermont_zip_geo, by = c("zipcode" = "zip")) %>%
-  select(-geometry, -city) %>%
-  spread(vaccine_given_in_clinic, n) %>%
-  ungroup() 
-if ("1" %in% names(vaccine_given)) {
-vaccine_given <- vaccine_given %>%
-  rename("Vaccine given" = "1") 
-} else if ("2" %in% names(vaccine_given)) {
-vaccine_given <- vaccine_given %>%
-  rename("Vaccine not given" = "2")
-} else if ("1" %in% names(vaccine_given) && "2" %in% names(vaccine_given)) {
-vaccine_given <- vaccine_given %>%
-  rename("Vaccine given" = "1") %>%
-  rename("Vaccine not given" = "2")
-} else {
-vaccine_given <- vaccine_given %>%
-  mutate(change_me_1 = "Vaccine given") %>%
-  mutate(change_me_2 = "Vaccine not given") %>%
-  rename("Vaccine given" = "change_me_1") %>%
-  rename("Vaccine not given" = "change_me_2")
-}
 leaflet_vaccine <- vermont_zip_data %>%
   st_transform(crs = "+init=epsg:4326") %>%
-  leaflet(width = "100%", height = "600px") %>%
+  leaflet() %>%
   addFullscreenControl() %>%
   addProviderTiles(provider = "CartoDB.Positron") %>%
   addPolylines(
@@ -464,26 +477,7 @@ leaflet_vaccine <- leaflet_vaccine %>%
 leaflet_vaccine
 ```
 
-Linked Census Map {data-navmenu="Census Data" data-icon="fa-map-marked"}
-=====================================
-
-```{r}
-# htmltools::tags$iframe(
-#   src = "zip_sync.html",
-#   scrolling = "no",
-#   seamless = "seamless",
-#   frameBorder = "0",
-#   style = "width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden;"
-htmltools::tags$iframe(
-  src = "zip_sync.html",
-  scrolling = "yes",
-  seamless = "seamless",
-  frameBorder = "0",
-  style = "border:0; top:0; left:0; right:0; bottom:0; width:100%; height:calc(100vh - 80px) !important"
-)
-```
-
-Data Table {data-icon="fa-table"}
+Data Tables {data-icon="fa-table"}
 =====================================   
 
 Column {.tabset}
@@ -532,3 +526,52 @@ rpivotTable(
   elementId = NULL
 )
 ```
+
+### Correlation Plot
+
+```{r}
+cor_data <- recoded_data %>%
+  mutate_all(as.factor) %>%
+  mutate_all(as.numeric) %>%
+  cor(use = "pairwise.complete.obs", method = "spearman") %>%
+  as.data.frame()
+cor_data[is.na(cor_data)] <- 0
+cor_data <- cor_data %$%
+  Filter(var, .) %>%
+  t() %>%
+  as.data.frame() %$%
+  Filter(var, .) %>%
+  heatmaply_cor(
+    margins = c(40, 40),
+    k_col = 2,
+    k_row = 2
+  )
+cor_data
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

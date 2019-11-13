@@ -7,38 +7,42 @@ output:
     vertical_layout: fill
     social: ["menu"]
     navbar:
-      - {title: "Home", href: "https://flutracts.org", align: right}
+      - {title: "Home", href: "https://flutracts.org/", align: right}
 ---
 
 ```{r, include = FALSE}
 library(flexdashboard)
 library(leaflet)
+library(stringr)
 library(sf)
+library(tidyverse)
+library(crosstalk)
 library(magrittr)
+library(leafsync)
 library(leaflet.minicharts)
 library(dplyr)
 library(tidyr)
 library(formr)
 library(leaflet.extras)
+library(readr)
 library(htmltools)
 library(DT)
 library(labelled)
 library(purrr)
 library(lubridate)
 library(readr)
+library(manipulateWidget)
 library(rpivotTable)
+library(widgetframe)
 library(heatmaply)
-# library(widgetframe)
-# library(crosstalk)
-# library(manipulateWidget)
-# library(stringr)
-# library(leafsync)
 
 options(tigris_use_cache = TRUE)
 
 vermont_zip_data <- read_rds("/home/brian/Desktop/flu/fludata/vermont_zip_data")
 vermont_zip_geo <- read_rds("/home/brian/Desktop/flu/fludata/vermont_zip_geo")
 ```
+
+TEST
 
 ```{r, include = FALSE}
 formr_connect(email = "bmuchmore@gmail.com", password = "dogsdogs" )
@@ -84,7 +88,8 @@ filtered_results <- filtered_results %>%
   mutate(zipcode = as.character(zipcode))
 
 recoded_data <- filtered_results %>%
-  mutate_at(vars(-ended), as.character) %>%
+  select(-ended) %>%
+  mutate_all(as.integer) %>%
   mutate(flu_shot_available = recode(.[["flu_shot_available"]], `1` = "Yes", `2` = "No")) %>%
   mutate(had_flu_in_past_year = recode(.[["had_flu_in_past_year"]], `1` = "Yes", `2` = "No")) %>%
   mutate(has_flu_currently = recode(.[["has_flu_currently"]], `1` = "Yes", `2` = "No")) %>%
@@ -122,10 +127,8 @@ recoded_data <- recoded_data %>%
 recoded_data$zipcode <- sub("^", 0, recoded_data$zipcode)
 recoded_data <- recoded_data %>%
   mutate(zipcode = map(zipcode, ~zipfix(.x))) %>%
-  mutate(ended = as.Date(ended, format = "%m/%d/%y")) %>%
-  mutate_at(vars(-ended), as.character) %>%
+  mutate_all(as.character) %>%
   rename(
-    "Survey date" = "ended",
     "Was the flu shot available?" = "flu_shot_available",
     "Age of participant" = "who_is_taking_survey",
     "Zipcode" = "zipcode",
@@ -339,10 +342,6 @@ vaccine_given <- vaccine_given %>%
   rename("Vaccine not given" = "change_me_2")
 }
 
-former_cases[is.na(former_cases)] <- 0
-current_cases[is.na(current_cases)] <- 0
-vaccine_given[is.na(vaccine_given)] <- 0
-
 if (is.data.frame(current_cases) && nrow(current_cases) == 0) {
   active <- 0
 } else {
@@ -531,24 +530,33 @@ rpivotTable(
 ### Correlation Plot
 
 ```{r}
-
-recoded_data[is.na(recoded_data)] <- 0
-
-cor_input <- recoded_data %>%
-  select(-"Survey date", -Zipcode, ) %>%
+cor_data <- recoded_data %>%
   mutate_all(as.factor) %>%
   mutate_all(as.numeric) %>%
-  cor(method = "spearman")
-
-cor_input[is.na(cor_input)] <- 0
-
-cor_input %>%
+  cor(use = "pairwise.complete.obs", method = "spearman") %>%
+  as.data.frame()
+cor_data[is.na(cor_data)] <- 0
+cor_data <- cor_data %$%
+  Filter(var, .) %>%
+  t() %>%
+  as.data.frame() %$%
+  Filter(var, .) %>%
   heatmaply_cor(
     margins = c(40, 40),
-    k_col = 2, 
+    k_col = 2,
     k_row = 2
-)
+  )
+cor_data
 ```
+
+
+
+
+
+
+
+
+
 
 
 

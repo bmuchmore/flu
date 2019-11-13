@@ -143,8 +143,6 @@ $("#scihubDIV").addClass("none");
 
 </body>
 
-
-
 {{ if .Site.Params.showGoogleSearch }}
 <form id="search-form-g" action="https://www.dynamed.com/results" method="get">
     <input id="search-bar" class="form-control" type="text" autofocus type="text" placeholder="Search DynaMed" name="q" alt="Search DynaMed" onkeydown="if(event.keyCode === 13) { this.form.submit(); return false; }">
@@ -171,7 +169,7 @@ $("#scihubDIV").addClass("none");
                     <h5 class="card-title groupTitle">{{ .group }}</h5>                        
                     <ul class="list-group list-group-flush groupListList">
                         {{ range .items }}
-                            <li class="list-group-item groupListListItem"><a href="{{ .url }}" title="{{ .description }}" target="_self" class="groupLink"><i class="{{ .icon }}"></i>&nbsp;<span class="groupText">{{ .title | safeHTML }}</span></a></li>
+                            <li class="list-group-item groupListListItem"><a href="{{ .url }}" title="{{ .description }}" target="_self" class="groupLink"><i class="{{ .icon }}"></i>&nbsp;<span class="groupText">{{ .title | safeHTML }}</span></a><center><img src="{{ .picture }}" style="width:256px;height:144px;!important;" onerror='this.style.display = "none"'></img></center></li>
                         {{ end }}
                     </ul>
                 </div>
