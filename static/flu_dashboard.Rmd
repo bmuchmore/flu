@@ -15,10 +15,7 @@ library(flexdashboard)
 library(leaflet)
 library(stringr)
 library(sf)
-library(tidyverse)
-library(crosstalk)
 library(magrittr)
-library(leafsync)
 library(leaflet.minicharts)
 library(dplyr)
 library(tidyr)
@@ -31,18 +28,20 @@ library(labelled)
 library(purrr)
 library(lubridate)
 library(readr)
-library(manipulateWidget)
 library(rpivotTable)
-library(widgetframe)
 library(heatmaply)
+
+# library(tidyverse)
+# library(crosstalk)
+# library(leafsync)
+# library(widgetframe)
+# library(manipulateWidget)
 
 options(tigris_use_cache = TRUE)
 
 vermont_zip_data <- read_rds("/home/brian/Desktop/flu/fludata/vermont_zip_data")
 vermont_zip_geo <- read_rds("/home/brian/Desktop/flu/fludata/vermont_zip_geo")
 ```
-
-TEST
 
 ```{r, include = FALSE}
 formr_connect(email = "bmuchmore@gmail.com", password = "dogsdogs" )
@@ -245,30 +244,30 @@ vt_income <- vermont_zip_data %>%
 ```
 
 ```{r, include = FALSE}
-save_tags <- function (tags, file, selfcontained = F, libdir = "./lib") 
-{
-  if (is.null(libdir)) {
-    libdir <- paste(tools::file_path_sans_ext(basename(file)), 
-                    "_files", sep = "")
-  }
-  htmltools::save_html(tags, file = file, libdir = libdir)
-  if (selfcontained) {
-    if (!htmlwidgets:::pandoc_available()) {
-      stop("Saving a widget with selfcontained = TRUE requires pandoc. For details see:\n", 
-           "https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md")
-    }
-    htmlwidgets:::pandoc_self_contained_html(file, file)
-    unlink(libdir, recursive = TRUE)
-  }
-  return(file)
-}
-zip_sync <- leafsync::sync(
-  vt_age,
-  vt_income,
-  vt_pop,
-  vt_edu
-)
-save_tags(zip_sync, "zip_sync.html", selfcontained = FALSE)
+# save_tags <- function (tags, file, selfcontained = F, libdir = "./lib") 
+# {
+#   if (is.null(libdir)) {
+#     libdir <- paste(tools::file_path_sans_ext(basename(file)), 
+#                     "_files", sep = "")
+#   }
+#   htmltools::save_html(tags, file = file, libdir = libdir)
+#   if (selfcontained) {
+#     if (!htmlwidgets:::pandoc_available()) {
+#       stop("Saving a widget with selfcontained = TRUE requires pandoc. For details see:\n", 
+#            "https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md")
+#     }
+#     htmlwidgets:::pandoc_self_contained_html(file, file)
+#     unlink(libdir, recursive = TRUE)
+#   }
+#   return(file)
+# }
+# zip_sync <- leafsync::sync(
+#   vt_age,
+#   vt_income,
+#   vt_pop,
+#   vt_edu
+# )
+# save_tags(zip_sync, "zip_sync.html", selfcontained = FALSE)
 ```
 
 ```{r, include = FALSE}
@@ -341,6 +340,11 @@ vaccine_given <- vaccine_given %>%
   rename("Vaccine given" = "change_me_1") %>%
   rename("Vaccine not given" = "change_me_2")
 }
+
+current_cases[is.na(current_cases)] <- 0
+former_cases[is.na(former_cases)] <- 0
+vaccine_given[is.na(vaccine_given)] <- 0
+
 
 if (is.data.frame(current_cases) && nrow(current_cases) == 0) {
   active <- 0
@@ -422,10 +426,10 @@ leaflet_cases <- leaflet_cases %>%
     # height = 30 * sqrt(as.numeric(current_cases[["Current cases"]])) / sqrt(max(as.numeric(current_cases[["Current cases"]]))),
   )
 } else {
-no_cases_tag <- tags$div(
+no_cases_tag <- htmltools::tags$div(
    HTML('
      <div class="alert alert-success">
-       <strong>No current cases</strong>        
+       <strong>No current cases</strong>
      </div>
   ')
 )  
@@ -464,7 +468,7 @@ leaflet_vaccine <- leaflet_vaccine %>%
     # height = 30 * sqrt(as.numeric(vaccine_given[["Vaccine given"]])) / sqrt(max(as.numeric(vaccine_given[["Vaccine given"]]))),
   )
 } else {
-no_vaccine_tag <- tags$div(
+no_vaccine_tag <- htmltools::tags$div(
    HTML('
      <div class="alert alert-warning">
        <strong>No current vacinations</strong>        
