@@ -10,7 +10,7 @@
       url: /census_trelliscope/index.html
       icon: fas fa-user-edit
       description: ""
-      picture: 
+      picture:    
     - title: Example Flu Survey
       url: https://testflusurvey.formr.org
       icon: fas fa-certificate

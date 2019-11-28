@@ -5,7 +5,7 @@ relativeURLs = true
 uglyURLs = true
 
 languageCode = "en-US"
-title = "Flu Tracker"
+title = "Other Resources"
 theme = "bootstrap-bp-hugo-startpage"
 # googleAnalytics = "UA-123-45"
 copyright = "Brian Muchmore"
@@ -30,7 +30,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
   description = "A website for flu information and real-time flu tracking"
-  startPageColumns = true
+  startPageColumns = false
   welcomeText = "Flu Tracker"
   showGoogleSearch = false
   showBingSearch = false
