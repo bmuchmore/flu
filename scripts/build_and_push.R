@@ -24,3 +24,6 @@ status(repo)
 commit(repo, message = ".", all = TRUE, session = TRUE)
 cred <- cred_token()
 push(repo, credentials = cred)
+
+library(DT)
+DT::tableHeader()
